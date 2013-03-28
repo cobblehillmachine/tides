@@ -1,0 +1,1 @@
+[05-Feb-2013 05:27:59] PHP Warning:  fopen(/tmp/timthumb_int_0880898deabb071f935b4f3eecbbcd0f.timthumb.txt) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: No such file or directory in /home/tid3scha/public_html/wp-content/themes/tides/library/timthumb.php on line 1020

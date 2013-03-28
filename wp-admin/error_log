@@ -1,0 +1,1 @@
+[12-Feb-2013 22:11:13] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/tid3scha/public_html/wp-admin/includes/template.php:1642) in /home/tid3scha/public_html/wp-includes/pluggable.php on line 876

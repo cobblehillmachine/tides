@@ -1,0 +1,64 @@
+.ajax-loader { display: none; }
+
+#contact-form p { margin-top: 2px; }
+
+#contact-form .wpcf7-form {
+	clear: both;
+	float: left;
+	display: inline;
+}
+
+.input-wrap { 
+	position: relative; 
+	float: left;
+	clear: both;
+}
+
+.input-button {
+	float: right;
+	width: 0;
+}
+
+.input-wrap label {
+	position: absolute;
+	left: 5px;
+	bottom: 6px;
+	z-index: 200;
+	font-size: 12px;
+	color: #fff;
+}
+
+.input-message label { top: 2px; }
+
+span.wpcf7-not-valid-tip {
+	top: 7px;
+	left: 5px;
+	z-index: 300;
+	background: #9C9C9D;
+	border: none;
+	font-size: 10px;
+	padding: 0;
+	color: white;
+	width: 240px;
+}
+
+.input-message span.wpcf7-not-valid-tip { 
+	top: 2px; 
+	height: 20px;
+}
+
+div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ok {
+	border: none;
+	color: white;
+	font-size: 10px;
+	padding: 0;
+	float: left;
+	margin-top: 7px;
+}
+
+/* other custom crap */
+.page-id-8 #page-content,
+.page-id-22 #page-content,
+.page-id-24 #page-content,
+.page-id-26 #page-content { margin-top: 124px; }

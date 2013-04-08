@@ -45,6 +45,9 @@
 			} else if (is_page('neighborhood')) {
 				$src = content_url() . '/themes/tides/library/images/bg_neighborhood.jpg';
 				$alt = 'Neighborhood Background';
+			} else if (is_page('contact-us')) {
+				$src = content_url() . '/themes/tides/library/images/bg_contact.jpg';
+				$alt = 'Contact Us Background';
 			} else {
 				$src = content_url() . '/themes/tides/library/images/bg_news.jpg';
 				$alt = 'News Background';
@@ -189,6 +192,7 @@
 				</form>
 
 			</div>
+
 		</div>
 
 			<? elseif (is_page('residences') || is_page('floor-plans') || is_page('gallery') || is_page('features')) : ?>
@@ -537,6 +541,104 @@
 			
 				</ul>
 			
+			</div>
+
+			<? elseif (is_page('contact-us')) : ?>
+
+			<div id="sidebar-content" class="left clear-both side-box">
+			
+				<h2 class="reset bold">Contact Us</h2>
+			
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			
+			</div>
+
+			<div id="contact-form" class="left clear-both side-box">
+
+				<h2 class="reset left">Get the Inside Information</h2>
+
+				<p class="reset left">843.388.4681</p>
+
+				<div class="wpcf7" id="wpcf7-f42-t1-o1">
+
+					<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="post" class="wpcf7-form">
+
+						<div class="input-wrap max-width">
+						
+							<label for="first_name" class="placeholder">First Name *</label>
+
+							<span class="wpcf7-form-control-wrap first_name">
+
+								<input type="text" name="first_name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" size="40" />
+
+							</span> 
+
+						</div>
+
+						<div class="input-wrap max-width">
+
+							<label for="last_name" class="placeholder">Last Name *</label>
+
+							<span class="wpcf7-form-control-wrap last_name">
+
+								<input type="text" name="last_name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" size="40" />
+
+							</span> 
+
+						</div>
+						
+						<div class="input-wrap max-width">
+							
+							<label for="email" class="placeholder">Email *</label>
+
+							<span class="wpcf7-form-control-wrap email">
+
+								<input type="text" name="email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" size="40" />
+
+							</span>
+
+						</div>
+						
+						<div class="input-wrap max-width">
+							
+							<label for="phone" class="placeholder">Phone</label>
+
+							<span class="wpcf7-form-control-wrap phone">
+
+								<input type="text" name="phone" value="" class="wpcf7-form-control wpcf7-text" size="40" />
+
+							</span>
+
+						</div>
+						
+						<div class="input-wrap max-width input-message">
+							
+							<label for="description" class="placeholder">Message</label>
+
+							<span class="wpcf7-form-control-wrap description">
+
+								<textarea name="description" class="wpcf7-form-control  wpcf7-textarea wpcf7-validates-as-required" cols="40" rows="10"></textarea>
+
+							</span>
+
+						</div>
+						
+						<div class="input-wrap max-width input-button">
+
+							<input type="submit" value="Discover More" class="wpcf7-form-control  wpcf7-submit button right bold" />
+
+						</div>
+						
+						<div style='display:none;'>
+							<input type="hidden" name="lead_source" value="Tides Website" class="wpcf7-hidden" />
+							<input type="hidden" name="oid" value="00Dd0000000gUQD" class="wpcf7-hidden" />
+							<input type="hidden" name="retURL" value="<?= salesforce_callback(); ?>" class="wpcf7-hidden" />
+						</div>
+
+					<div class="wpcf7-response-output wpcf7-display-none"></div>
+
+				</form>
+
 			</div>
 
 			<? else : ?>

@@ -39,7 +39,7 @@
 			} else if (is_page('residences') || is_page('floor-plans') || is_page('gallery') || is_page('features')) {
 				$src = content_url() . '/themes/tides/library/images/bg_residences.jpg';
 				$alt = 'Residencies Background';
-			} else if (is_page('amenities') || is_page('community') || is_page('about-the-team') || is_page('meet-your-new-neighrbors')) {
+			} else if (is_page('amenities') || is_page('community') || is_page('about-the-team') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) {
 				$src = content_url() . '/themes/tides/library/images/bg_amenities.jpg';
 				$alt = 'Amenities Background';
 			} else if (is_page('neighborhood')) {
@@ -303,7 +303,7 @@
 
 			</div>
 
-			<? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('about-the-team')) : ?>
+            <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('about-the-team') || is_page('bucket-list')) : ?>
 
 			<div id="sidebar-content" class="left clear-both side-box">
 
@@ -327,6 +327,7 @@
 					<li <?= is_page('amenities') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/amenities'); ?>">Amenities</a></li>
 					<li <?= is_page('about-the-team') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/about-the-team'); ?>">About the Team</a></li>
 					<li <?= is_page('meet-your-new-neighrbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighrbors'); ?>">Meet Your New Neighrbors</a></li>
+					<li><a class="uppercase bold block max-height max-width" href="#">Bucket List</a></li>
 				</ul>
 			
 			</div>

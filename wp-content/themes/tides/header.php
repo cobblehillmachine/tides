@@ -641,6 +641,8 @@
 
 			</div>
 
+        </div>
+
 			<? else : ?>
 
         <? bones_page_navi(); ?>

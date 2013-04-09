@@ -255,4 +255,3 @@ if ( ! function_exists('salesforce_callback')) {
         return 'http://tidescharleston.com/thank-you/';
     }
 }
-?>

@@ -253,7 +253,66 @@
 			<div id="mobile-nav-residencies" class="left clear-both">
 			
 				<ul class="ul-reset reset">
+
+					<li <?= is_page('listings') ? 'class="current"' : null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/listings'); ?>">Listings</a></li>
 					
+					<? if (is_page('listings')) : ?>
+
+				    <?
+							$args = array(
+								'post_type' => 'floorplans',
+								'post_status' => 'publish',
+								'nopaging' => true,
+								'post_per_page' => -1,
+								'orderby' => 'none'
+							);
+							$floorplans = new WP_Query($args);
+						?>
+
+						<? if (!empty($floorplans->posts)) : ?>
+
+						<div class="floorplans">
+
+							<h3 class="light reset">Listings</h3>
+
+							<ul class="ul-reset reset" id="floorplan-slider">
+
+							<? foreach ($floorplans->posts as $post) : ?>
+									
+								<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+									
+								<li class="floorplan left inline">
+										
+									<h4 class="reset bold"><?= $post->post_title; ?></h4>
+
+									<p class="reset"><?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?></p>
+
+									<p class="reset bold price"><?= get_post_meta($post->ID, 'Floorplan - Price', true); ?></p>
+
+									<a href="<?= $image[0]; ?>">View Floorplan</a>
+
+									<br>
+
+									<a href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
+
+								</li>
+
+								<? $image = null; ?>
+
+							<? endforeach; ?>
+
+							</ul>
+
+						</div>
+						
+				    <? else : ?>
+						
+		    			<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+						
+				    <? endif; ?> 
+
+				  <? endif; ?>
+
 					<li <?= is_page('gallery') ? 'class="current"' : null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/gallery'); ?>">Gallery</a></li>
 					
 					<? if (is_page('gallery')) : ?>
@@ -318,22 +377,6 @@
 							<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
 						
 				    <? endif; endif; ?>
-
-					<li <?= is_page('floor-plans') ? 'class="current"' : null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/floor-plans'); ?>">Floorplans</a></li>
-					
-					<? if (is_page('floor-plans')) : ?>
-
-						<? if (have_posts()) : while (have_posts()) : the_post(); ?>
-												   
-							    <li class="page-content"><? the_content(); ?></li>
-							
-						    <? endwhile; else : ?>
-							
-					    		<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
-							
-						    <? endif; ?>
-
-					<? endif; ?>
 					
 					<li <?= is_page('features') ? 'class="current"' : null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/features'); ?>">Features</a></li>
 
@@ -1186,6 +1229,193 @@
 
 					</div>
 
+				</div>
+
+			</div>
+
+			<? elseif (is_page('contact-us')) : ?>
+	
+			<div id="mobile-sidebar-content" class="left clear-both mobile-box">
+				
+				<div class="mobile-wrap">
+
+					<h2 class="reset bold">Contact Us</h2>
+			
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			
+				</div>
+
+			</div>
+
+			<div id="mobile-contact-us">
+
+				<div class="mobile-wrap">
+					
+	        <div id="mobile-contact-info" class="left">
+            <? if (have_posts()) : while (have_posts()) : the_post(); ?>
+                                   
+              <h3 class="reset light">Contact Us</h3>
+
+              <? the_content(); ?>
+
+
+            <? endwhile; else : ?>
+            
+                <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+            
+            <? endif; ?>
+	        </div>
+	    
+	        <div id="mobile-map">
+
+	            <img class="right" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
+
+	        </div>
+
+	        <div id="mobile-team">
+
+            <h3 class="reset light">The Team</h3>
+
+            <? 
+              $args = array(
+                'post_type' => 'team',
+                'post_status' => 'publish',
+                'nopaging' => true,
+                'post_per_page' => -1,
+                'orderby' => 'none'
+              );
+              $team = new WP_Query($args);
+            ?>
+
+            <? if (!empty($team->posts)) : ?>
+
+              <ul id="mobile-carousel">
+
+                <? foreach ($team->posts as $post) : ?>
+
+                  <? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+
+                  <li class="member">
+
+                    <img src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=140&h=130'; ?>">
+                    
+                    <h4 class="semibold reset"><?= $post->post_title; ?></h4>
+                    
+                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
+
+                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
+
+                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Email Address', true); ?></p>
+
+                  </li>
+
+                  <? $image = null; ?>
+
+                <? endforeach; ?>
+
+              </ul>
+
+            <? else : ?>
+
+              <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+
+            <? endif; ?>
+
+	        </div>
+
+				</div>
+
+			</div>
+
+			<div id="mobile-contact-form" class="left clear-both mobile-box">
+
+				<div class="mobile-wrap">
+
+					<h2 class="reset clear-both">Stay in Touch.</h2>
+
+					<p class="clear-both">Sign up for email updates to be the first to know about pricing, timing and improvements at the Tides.</p>
+
+					<div class="wpcf7" id="wpcf7-f51-t1-o1">
+
+						<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="post" class="wpcf7-form">
+					
+							<div class="input-wrap max-width">
+						
+								<label for="first_name" class="placeholder">First Name *</label>
+
+								<span class="wpcf7-form-control-wrap first_name">
+
+									<input type="text" name="first_name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" size="40" />
+
+								</span>
+
+							</div>
+							
+							<div class="input-wrap max-width">
+							
+								<label for="last_name" class="placeholder">Last Name *</label>
+
+								<span class="wpcf7-form-control-wrap last_name">
+
+									<input type="text" name="last_name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" size="40" />
+
+								</span>
+
+							</div>
+							
+							<div class="input-wrap max-width">
+							
+								<label for="email" class="placeholder">Email *</label>
+
+								<span class="wpcf7-form-control-wrap email">
+
+									<input type="text" name="email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" size="40" />
+
+								</span>
+
+								</div>
+
+							<div class="input-wrap max-width">
+							
+								<label for="phone" class="placeholder">Phone</label>
+
+								<span class="wpcf7-form-control-wrap phone">
+
+									<input type="text" name="phone" value="" class="wpcf7-form-control wpcf7-text" size="40" />
+
+								</span>
+
+							</div>
+							
+							<div class="input-wrap max-width input-message">
+							
+								<label for="description" class="placeholder">Message</label>
+
+								<span class="wpcf7-form-control-wrap description">
+
+									<textarea name="description" class="wpcf7-form-control  wpcf7-textarea wpcf7-validates-as-required" cols="40" rows="10"></textarea>
+
+								</span>
+
+							</div>
+
+							<div class="input-wrap max-width input-button">
+
+								<input type="submit" value="Discover More" class="wpcf7-form-control  wpcf7-submit left bold" />
+
+							</div>
+							
+							<div style='display:none;'>
+								<input type="hidden" name="lead_source" value="Tides Website" class="wpcf7-hidden" />
+								<input type="hidden" name="oid" value="00Dd0000000gUQD" class="wpcf7-hidden" />
+								<input type="hidden" name="retURL" value="<?= salesforce_callback(); ?>" class="wpcf7-hidden" />
+							</div>
+
+							<div class="wpcf7-response-output wpcf7-display-none"></div>
+
+						</form>
+
+					</div>
 
 				</div>
 

@@ -6,24 +6,25 @@ Template Name: Contact Us Page
 
 <? get_header(); ?>
 
-    <? if (have_posts()) : while (have_posts()) : the_post(); ?>
-                           
         <div id="contact-info" class="left">
+            <? if (have_posts()) : while (have_posts()) : the_post(); ?>
+                                   
+                <h3 class="reset light">Contact Us</h3>
 
-            <h3 class="reset light">Contact Us</h3>
+                <? the_content(); ?>
 
-            <? the_content(); ?>
 
+            <? endwhile; else : ?>
+            
+                <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+            
+            <? endif; ?>
         </div>
-
-    <? endwhile; else : ?>
-    
-        <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
-    
-    <? endif; ?>
     
         <div id="map">
-            <img class="right" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
+
+            <img class="right inline" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
+
         </div>
 
         <div id="team">
@@ -55,11 +56,11 @@ Template Name: Contact Us Page
                             
                             <h4 class="semibold reset"><?= $post->post_title; ?></h4>
                             
-                            <p class="regular"><?= get_post_meta($post->ID, 'Position Title', true); ?></p>
+                            <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
 
-                            <p class="regular"><?= get_post_meta($post->ID, 'Contact Phone', true); ?></p>
+                            <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
 
-                            <p class="regular"><?= get_post_meta($post->ID, 'Email Address', true); ?></p>
+                            <p class="regular"><?= get_post_meta($post->ID, 'Team - Email Address', true); ?></p>
 
                         </li>
 
@@ -76,6 +77,5 @@ Template Name: Contact Us Page
             <? endif; ?>
 
         </div>
-
 			
 <? get_footer(); ?>

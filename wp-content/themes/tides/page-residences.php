@@ -67,19 +67,79 @@ Template Name: Residences Page
 						
 				    <? endif; ?>
 
-					<? elseif (is_page('floor-plans')) : ?>
+					<? elseif (is_page('listings')) : ?>
 
-						<? if (have_posts()) : while (have_posts()) : the_post(); ?>
-											   
-						    <? the_content(); ?>
-						
-					    <? endwhile; else : ?>
-						
-				    		<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
-						
-					    <? endif; ?>
+						<?
+							$args = array(
+								'post_type' => 'floorplans',
+								'post_status' => 'publish',
+								'nopaging' => true,
+								'post_per_page' => -1,
+								'orderby' => 'none'
+							);
+							$floorplans = new WP_Query($args);
+						?>
 
-						<? elseif (is_page('features')) : ?>
+						<? if (!empty($floorplans->posts)) : ?>
+
+							<div class="floorplans">
+
+								<h3 class="light reset">Listings</h3>
+
+								<div class="jcarousel-pagination">
+        					<!-- Pagination items will be generated in here -->
+    						</div>
+
+								<div class="jcarousel">
+
+									<ul class="ul-reset reset">
+									
+									<? $i = 0; ?>
+									
+									<? foreach ($floorplans->posts as $post) : ?>
+										
+										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+
+										<li class="floorplan left inline">
+											
+											<h4 class="reset bold"><?= $post->post_title; ?></h4>
+
+											<p class="reset"><?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?></p>
+
+											<p class="reset bold price"><?= get_post_meta($post->ID, 'Floorplan - Price', true); ?></p>
+
+											<a href="<?= $image[0]; ?>">View Floorplan</a>
+
+											<br>
+
+											<a href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
+
+											<input type="hidden" name="pdf" value="<?= get_post_meta($post->ID, 'Floorplan - PDF'); ?>">
+
+										</li>
+
+										<? $image = null; ?>
+										
+										<? $i++; ?>
+									
+									<? endforeach; ?>
+
+									</ul>
+
+								</div>
+
+								<a class="jcarousel-prev" href="#">Prev</a>
+    						<a class="jcarousel-next" href="#">Next</a>
+
+							</div>
+
+						<? else : ?>
+					
+			    		<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+					
+				    <? endif; ?>
+
+					<? elseif (is_page('features')) : ?>
 
 						<h3 class="light reset">Features</h3>
 

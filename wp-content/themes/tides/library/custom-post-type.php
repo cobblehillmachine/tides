@@ -85,7 +85,7 @@ function custom_post_floorplans() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'revisions', 'thumbnail')
+			'supports' => array( 'title', 'revisions', 'thumbnail', 'custom-fields')
 	 	) /* end of options */
 	); /* end of register post type */
 } 

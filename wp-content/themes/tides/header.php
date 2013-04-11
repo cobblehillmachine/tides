@@ -36,10 +36,10 @@
 			if (is_page('home') || is_page('thank-you')) {
 				$src = content_url() . '/themes/tides/library/images/bg_home.jpg';
 				$alt = 'Home Background';
-			} else if (is_page('residences') || is_page('floor-plans') || is_page('gallery') || is_page('features')) {
+			} else if (is_page('residences') || is_page('listings') || is_page('gallery') || is_page('features')) {
 				$src = content_url() . '/themes/tides/library/images/bg_residences.jpg';
 				$alt = 'Residencies Background';
-			} else if (is_page('amenities') || is_page('community') || is_page('about-the-team') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) {
+			} else if (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) {
 				$src = content_url() . '/themes/tides/library/images/bg_amenities.jpg';
 				$alt = 'Amenities Background';
 			} else if (is_page('neighborhood')) {
@@ -195,7 +195,7 @@
 
 		</div>
 
-			<? elseif (is_page('residences') || is_page('floor-plans') || is_page('gallery') || is_page('features')) : ?>
+			<? elseif (is_page('residences') || is_page('listings') || is_page('gallery') || is_page('features')) : ?>
 
 			<div id="sidebar-content" class="left clear-both side-box">
 				
@@ -210,8 +210,8 @@
 			<div id="nav-residencies" class="left clear-both">
 			
 				<ul class="ul-reset reset">
+					<li <?= is_page('listings') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/listings'); ?>">Listings</a></li>
 					<li <?= is_page('gallery') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/gallery'); ?>">Gallery</a></li>
-					<li <?= is_page('floor-plans') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/floor-plans'); ?>">Floorplans</a></li>
 					<li <?= is_page('features') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/residencies/features'); ?>">Features</a></li>
 				</ul>
 			
@@ -307,7 +307,7 @@
 
 			</div>
 
-            <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('about-the-team') || is_page('bucket-list')) : ?>
+      <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) : ?>
 
 			<div id="sidebar-content" class="left clear-both side-box">
 
@@ -329,9 +329,8 @@
 			
 				<ul class="ul-reset reset">
 					<li <?= is_page('amenities') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/amenities'); ?>">Amenities</a></li>
-					<li <?= is_page('about-the-team') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/about-the-team'); ?>">About the Team</a></li>
 					<li <?= is_page('meet-your-new-neighrbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighrbors'); ?>">Meet Your New Neighrbors</a></li>
-					<li><a class="uppercase bold block max-height max-width" href="#">Bucket List</a></li>
+					<li><a class="uppercase bold block max-height max-width" href="<?= site_url(); ?>/wp-content/uploads/2013/04/tides_bucket_list_printout.pdf">Bucket List</a></li>
 				</ul>
 			
 			</div>
@@ -635,13 +634,13 @@
 							<input type="hidden" name="retURL" value="<?= salesforce_callback(); ?>" class="wpcf7-hidden" />
 						</div>
 
-					<div class="wpcf7-response-output wpcf7-display-none"></div>
+						<div class="wpcf7-response-output wpcf7-display-none"></div>
 
-				</form>
+					</form>
 
-			</div>
+				</div>
 
-        </div>
+      </div>
 
 			<? else : ?>
 
@@ -654,7 +653,9 @@
 		<? if (is_page('home') || is_page('thank-you')) : ?>
 		<? $src = content_url() . '/themes/tides/library/images/mbg_home.jpg'; ?>
 		<div id="bg-mobile">
+
 			<img src="<?= $src; ?>" alt="<?= $alt; ?>">
+
 		</div>
 		<? endif; ?>
 

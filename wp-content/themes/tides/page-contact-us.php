@@ -44,31 +44,37 @@ Template Name: Contact Us Page
 
             <? if ( ! empty($team->posts)) : ?>
 
-                <ul id="carousel">
+                <div <?= count($team->posts) > 4 ? 'class="carousel carousel-team"' : null; ?>>
 
-                    <? foreach ($team->posts as $post) : ?>
+                    <ul class="ul-reset reset" <?= count($team->posts) < 4 ? 'id="no-carousel"' : null; ?>>
 
-                        <? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+                        <? foreach ($team->posts as $post) : ?>
 
-                        <li class="member">
+                            <? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 
-                            <img src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=140&h=130'; ?>">
-                            
-                            <h4 class="semibold reset"><?= $post->post_title; ?></h4>
-                            
-                            <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
+                            <li class="member left inline">
 
-                            <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
+                                <img src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=140&h=130'; ?>">
+                                
+                                <h4 class="semibold reset"><?= $post->post_title; ?></h4>
+                                
+                                <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
 
-                            <p class="regular"><?= get_post_meta($post->ID, 'Team - Email Address', true); ?></p>
+                                <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
 
-                        </li>
+                                <a href="mailto:<?= get_post_meta($post->ID, 'Team - Email Address', true); ?>" class="light"><?= get_post_meta($post->ID, 'Team - Email Address', true); ?></a>
 
-                        <? $image = null; ?>
+                            </li>
 
-                    <? endforeach; ?>
+                            <? $image = null; ?>
 
-                </ul>
+                        <? endforeach; ?>
+
+                    </ul>
+
+                </div>
+
+                
 
             <? else : ?>
 

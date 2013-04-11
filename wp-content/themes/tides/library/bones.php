@@ -149,9 +149,7 @@ function bones_scripts_and_styles()
 
     //adding scripts file in the footer
     wp_register_script('bones-js', get_stylesheet_directory_uri() . '/library/js/tides.js', array('jquery'), '', true);
-    wp_register_script('jcarousel-core', get_stylesheet_directory_uri() . '/library/js/libs/jquery.jcarousel-core.js', array('jquery'), '', true);
-    wp_register_script('jcarousel-control', get_stylesheet_directory_uri() . '/library/js/libs/jquery.jcarousel-control.js', array('jquery'), '', true);
-    wp_register_script('jcarousel-pagination', get_stylesheet_directory_uri() . '/library/js/libs/jquery.jcarousel-pagination.js', array('jquery'), '', true);
+    wp_register_script('carousel', get_stylesheet_directory_uri() . '/library/js/libs/jquery.carousel.js', array('jquery'), '', true);
     wp_register_script('jscrollpane', get_stylesheet_directory_uri() . '/library/js/libs/jquery.jscrollpane.js', array('jquery'), '', true);
 
     // enqueue styles and scripts
@@ -166,9 +164,7 @@ function bones_scripts_and_styles()
     and your site will load faster.
     */
     wp_enqueue_script('jquery');
-    wp_enqueue_script('jcarousel-core');
-    wp_enqueue_script('jcarousel-control');
-    wp_enqueue_script('jcarousel-pagination');
+    wp_enqueue_script('carousel');
     wp_enqueue_script('jscrollpane');
     wp_enqueue_script('bones-js');
   }

@@ -224,30 +224,19 @@ jQuery(document).ready(function ($) {
         if (errors.length > 0) e.preventDefault();
     });
 
-    var carousel = $('.jcarousel').jcarousel({
+    $('.carousel-residencies').carousel({
+        itemsPerPage: 3,
+        itemsPerTransition: 3,
+        easing: 'linear',
+        noOfRows: 2
     });
 
-    $('.jcarousel-prev').jcarouselControl({
-        target: '-=3',
-        carousel: carousel
-    });
-
-    $('.jcarousel-next').jcarouselControl({
-        target: '+=3',
-        carousel: carousel
-    });
-
-    $('.jcarousel-pagination').jcarouselPagination({
-        carousel: carousel,
-        perPage: 3
-    });
-
-    $('.jcarousel-pagination')
-    .on('active.jcarouselcontrol', 'a', function() {
-        $(this).addClass('active');
-    })
-    .on('inactive.jcarouselcontrol', 'a', function() {
-        $(this).removeClass('active');
+    $('.carousel-team').carousel({
+        itemsPerPage: 4,
+        itemsPerTransition: 1,
+        easing: 'linear',
+        noOfRows: 1,
+        pagination: false 
     });
 
     /*

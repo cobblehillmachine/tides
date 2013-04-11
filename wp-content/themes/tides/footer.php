@@ -117,28 +117,48 @@
 
 			</div>
 
-			<? elseif (is_page( 'amenities' )) : ?>
+      <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) : ?>
 
-			<div id="page-amenities">
+			<? if (is_page('amenities')) : ?>
 
-					<div class="mobile-wrap">
+			<div id="sidebar-content" class="left clear-both side-box">
+	
+				<h2 class="reset bold">Tides owners have total access to onsite Amenities that will surpass your greatest expectations including:</h2>
 
-					<h2 class="reset bold">Tides owners have total access to onsite Amenities that will surpass your greatest expectations including:</h2>
-					
-					<p>An integrated beach entry pool with sun and shade deck</p>
+				<p>&bull; An integrated beach entry pool with sun and shade deck</p>
 
-					<p>Cabana bar and summer kitchen</p>
+				<p>&bull; Cabana bar and summer kitchen</p>
 
-					<p>Spa and health club with sauna, steam, and massage rooms for personal training</p>
+				<p>&bull; Spa and health club with sauna, steam, and massage rooms for personal training</p>
 
-					<p>Finely appointed lobbies and verandas with two-story atrium where you can greet guests</p>
+				<p>&bull; Finely appointed lobbies and verandas with two-story atrium where you can greet guests</p>
 
-					<p>Full-time property management and engineering services available</p>
-
-				</div>
+				<p>&bull; Full-time property management and engineering services available</p>
 
 			</div>
 
+			<? else : ?>
+
+			<div id="sidebar-content" class="left clear-both side-box">
+
+				<h2 class="reset bold">COMMUNITY</h2>
+
+				<p>The perfect place to call home. With top quality amenities, full-time property management and neighbors who you can gladly call friends, the Tides is more than your residence; it’s your community.</p>
+
+			</div>
+
+			<? endif; ?>
+
+			<div id="nav-residencies" class="left clear-both">
+			
+				<ul class="ul-reset reset">
+					<li <?= is_page('amenities') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/amenities'); ?>">Amenities</a></li>
+					<li <?= is_page('meet-your-new-neighrbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighrbors'); ?>">Meet Your New Neighrbors</a></li>
+					<li><a class="uppercase bold block max-height max-width" href="<?= site_url(); ?>/wp-content/uploads/2013/04/tides_bucket_list_printout.pdf">Bucket List</a></li>
+				</ul>
+			
+			</div>
+			
 			<div id="mobile-contact-form" class="left clear-both mobile-box">
 
 				<div class="mobile-wrap">
@@ -1241,7 +1261,7 @@
 
 					<h2 class="reset bold">Contact Us</h2>
 			
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+					<p>The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also reach out to Carolina One New Homes, our exclusive broker partner, for more information on these listings.</p>
 			
 				</div>
 

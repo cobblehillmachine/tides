@@ -86,15 +86,9 @@ Template Name: Residences Page
 
 								<h3 class="light reset">Listings</h3>
 
-								<div class="jcarousel-pagination">
-        					<!-- Pagination items will be generated in here -->
-    						</div>
-
-								<div class="jcarousel">
+								<div class="carousel carousel-residencies">
 
 									<ul class="ul-reset reset">
-									
-									<? $i = 0; ?>
 									
 									<? foreach ($floorplans->posts as $post) : ?>
 										
@@ -119,17 +113,12 @@ Template Name: Residences Page
 										</li>
 
 										<? $image = null; ?>
-										
-										<? $i++; ?>
 									
 									<? endforeach; ?>
 
 									</ul>
 
 								</div>
-
-								<a class="jcarousel-prev" href="#">Prev</a>
-    						<a class="jcarousel-next" href="#">Next</a>
 
 							</div>
 

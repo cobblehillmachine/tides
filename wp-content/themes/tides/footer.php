@@ -240,6 +240,28 @@
 					<? endif; ?>
 
 					<li <?= is_page('bucket-list') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/bucket-list'); ?>">Bucket List</a></li>
+					
+					<? if (is_page('bucket-list')) : ?>
+					
+					<li class="mobile-bucket-list">
+
+						<? if (have_posts()) : while (have_posts()) : the_post(); ?>
+										   
+					    <div class="bucket-list">
+
+					    	<? the_content(); ?>
+
+				    	</div>
+					
+				    <? endwhile; else : ?>
+					
+			    		<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+					
+				    <? endif; ?>
+
+			    </li>
+
+			  	<? endif; ?>
 
 				</ul>
 			

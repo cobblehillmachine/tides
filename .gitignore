@@ -18,3 +18,4 @@ sitemap.xml.gz
 .DS_Store
 *.swp
 newsletter/
+local-config.php

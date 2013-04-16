@@ -7,6 +7,7 @@ set :scm, :git
 set :deploy_to, "/var/www/apps/tides_beta/"
 set :deploy_via, :remote_cache
 set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules"]
+set :user, "sdeploy@cobblehilldigital.com"
 server "tides.cobblehilldigital.com", :app
 
 # if you want to clean up old releases on each deploy uncomment this:

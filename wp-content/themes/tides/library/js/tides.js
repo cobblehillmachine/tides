@@ -224,9 +224,24 @@ jQuery(document).ready(function ($) {
         if (errors.length > 0) e.preventDefault();
     });
 
-    $('.carousel-residencies').carousel({
+    $('.carousel-floorplans').carousel({
         itemsPerPage: 3,
         itemsPerTransition: 3,
+        easing: 'linear',
+        noOfRows: 2,
+        pagination: true
+    });
+
+    $('.mobile-carousel-floorplans').carousel({
+        itemsPerPage: 2,
+        itemsPerTransition: 2,
+        easing: 'linear',
+        noOfRows: 2
+    });
+
+    $('.phone-carousel-floorplans').carousel({
+        itemsPerPage: 2,
+        itemsPerTransition: 2,
         easing: 'linear',
         noOfRows: 2
     });
@@ -237,6 +252,106 @@ jQuery(document).ready(function ($) {
         easing: 'linear',
         noOfRows: 1,
         pagination: false 
+    });
+
+    $('.carousel-gallery').carousel({
+        itemsPerPage: 3,
+        itemsPerTransition: 3,
+        easing: 'linear',
+        noOfRows: 2,
+        pagination: true
+    });
+
+    $('.mobile-carousel-gallery').carousel({
+        itemsPerPage: 3,
+        itemsPerTransition: 3,
+        easing: 'linear',
+        noOfRows: 2,
+        pagination: false
+    });
+
+    $('.phone-carousel-gallery').carousel({
+        itemsPerPage: 2,
+        itemsPerTransition: 2,
+        easing: 'linear',
+        noOfRows: 2,
+        pagination: false
+    });
+
+    $('.carousel-neighbors').carousel({
+        itemsPerPage: 3,
+        itemsPerTransition: 1,
+        easing: 'linear',
+        noOfRows: 1,
+        pagination: false,
+    });
+
+    $('.mobile-carousel-neighbors').carousel({
+        itemsPerPage: 3,
+        itemsPerTransition: 1,
+        easing: 'linear',
+        noOfRows: 1,
+        pagination: false,
+    });
+
+    $('.phone-carousel-neighbors').carousel({
+        itemsPerPage: 1,
+        itemsPerTransition: 1,
+        easing: 'linear',
+        noOfRows: 1,
+        pagination: false,
+    });
+
+    Shadowbox.init({
+        displayCounter: false,
+        onFinish: function (e) {
+            var $parent = $(e.link).parent();
+            
+            if ($('#sb-counter').next().is('a')) {
+                $('#sb-counter').next().remove();
+            }
+
+            if ($('#sb-wrapper').find('.neighbor-comment').length > 0) {
+                $('#sb-wrapper').find('.neighbor-comment').remove();
+            }
+
+            if ($('#sb-wrapper').find('.floorplan-detail').length > 0) {
+                $('#sb-wrapper').find('.floorplan-detail').remove();
+            }
+
+            if ($('#sb-wrapper').find('.gallery-detail').length > 0) {
+                console.log('remove');
+                $('#sb-wrapper').find('.gallery-detail').remove();
+            }
+
+            if ($parent.find('input[name="floorplan-pdf"]').length > 0) {
+                var pdf = $parent.find('input[name="floorplan-pdf"]').val(),
+                    anchor = '<a id="download-link" href="' + url + '/' + pdf + '">Download</a>';
+
+                $('#sb-counter').after(anchor);
+            }
+
+            if ($parent.find('input[name="floorplan-detail"]').length > 0) {
+                var text = $parent.find('input[name="floorplan-detail"]').val(),
+                    tag = '<p class="floorplan-detail">"' + text +'"</a>';
+
+                $('#sb-wrapper').append(tag);
+            }
+
+            if ($parent.find('input[name="gallery-detail"]').length > 0) {
+                var text = $parent.find('input[name="gallery-detail"]').val(),
+                    tag = '<p class="gallery-detail">"' + text +'"</a>';
+
+                $('#sb-wrapper').append(tag);
+            }
+
+            if ($parent.find('input[name="neighbor-comment"]').length > 0) {
+                var text = $parent.find('input[name="neighbor-comment"]').val(),
+                    tag = '<p class="neighbor-comment">"' + text +'"</a>';
+
+                $('#sb-wrapper').append(tag);
+            }
+        }
     });
 
     /*
@@ -251,34 +366,17 @@ jQuery(document).ready(function ($) {
 
     /* if is below 481px */
     if (responsive_viewport < 481) {
-        $('#mobile-slider').easySlider({
-            auto: true,
-            continuous: true,
-            pause: 5000
-        });
+        
     } /* end smallest screen */
 
     /* if is larger than 481px */
     if (responsive_viewport > 481) {
-        /*$('#mobile-slider').easySlider({
-            auto: true,
-            continuous: true,
-            pause: 5000,
-            prevText: '',
-            nextText: ''
-        });*/
+
     } /* end larger than 481px */
     
     /* if is above or equal to 768px */
     if (responsive_viewport >= 768) {
         $('.news-post .content').jScrollPane();
-
-        /*$('#slider').easySlider({
-            auto: true,
-            continuous: true,
-            numeric: true,
-            pause: 5000
-        });*/
     }
     
     /* off the bat large screen actions */

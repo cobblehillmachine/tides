@@ -187,13 +187,13 @@
 							<input type="hidden" name="retURL" value="<?= salesforce_callback(); ?>" class="wpcf7-hidden" />
 						</div>
 
-					<div class="wpcf7-response-output wpcf7-display-none"></div>
+						<div class="wpcf7-response-output wpcf7-display-none"></div>
 
-				</form>
+					</form>
+
+				</div>
 
 			</div>
-
-		</div>
 
 			<? elseif (is_page('residences') || is_page('listings') || is_page('gallery') || is_page('features')) : ?>
 
@@ -339,12 +339,12 @@
 
 			<? endif; ?>
 
-			<div id="nav-residencies" class="left clear-both">
+			<div id="nav-community" class="left clear-both">
 			
 				<ul class="ul-reset reset">
 					<li <?= is_page('amenities') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/amenities'); ?>">Amenities</a></li>
 					<li <?= is_page('meet-your-new-neighrbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighrbors'); ?>">Meet Your New Neighrbors</a></li>
-					<li><a class="uppercase bold block max-height max-width" href="<?= site_url(); ?>/wp-content/uploads/2013/04/tides_bucket_list_printout.pdf">Bucket List</a></li>
+					<li <?= is_page('bucket-list') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/bucket-list'); ?>">Bucket List</a></li>
 				</ul>
 			
 			</div>

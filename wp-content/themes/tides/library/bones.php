@@ -139,6 +139,9 @@ function bones_scripts_and_styles()
     // register jscrollpane stylesheet
     wp_register_style('bones-scrollpane', get_stylesheet_directory_uri() . '/library/css/jscrollpane.css', array(), '', 'all');
 
+    // register shadowbox stylesheet
+    wp_register_style('bones-shadowbox', get_stylesheet_directory_uri() . '/library/js/libs/shadowbox-3.0.3/shadowbox.css', array(), '', 'all');
+
     // ie-only style sheet
     wp_register_style('bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '');
 
@@ -151,12 +154,14 @@ function bones_scripts_and_styles()
     wp_register_script('bones-js', get_stylesheet_directory_uri() . '/library/js/tides.js', array('jquery'), '', true);
     wp_register_script('carousel', get_stylesheet_directory_uri() . '/library/js/libs/jquery.carousel.js', array('jquery'), '', true);
     wp_register_script('jscrollpane', get_stylesheet_directory_uri() . '/library/js/libs/jquery.jscrollpane.js', array('jquery'), '', true);
+    wp_register_script('shadowbox', get_stylesheet_directory_uri() . '/library/js/libs/shadowbox-3.0.3/shadowbox.js', array('jquery'), '', true);
 
     // enqueue styles and scripts
     wp_enqueue_script('bones-modernizr');
-    wp_enqueue_style('bones-stylesheet');
     wp_enqueue_style('bones-formstyle');
     wp_enqueue_style('bones-scrollpane');
+    wp_enqueue_style('bones-shadowbox');
+    wp_enqueue_style('bones-stylesheet');
     wp_enqueue_style('bones-ie-only');
     /*
     I recommend using a plugin to call jQuery
@@ -166,6 +171,7 @@ function bones_scripts_and_styles()
     wp_enqueue_script('jquery');
     wp_enqueue_script('carousel');
     wp_enqueue_script('jscrollpane');
+    wp_enqueue_script('shadowbox');
     wp_enqueue_script('bones-js');
   }
 }

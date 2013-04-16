@@ -121,40 +121,126 @@
 
 			<? if (is_page('amenities')) : ?>
 
-			<div id="sidebar-content" class="left clear-both side-box">
+			<div id="mobile-sidebar-content" class="left clear-both mobile-box">
+
+				<div class="mobile-wrap">
 	
-				<h2 class="reset bold">Tides owners have total access to onsite Amenities that will surpass your greatest expectations including:</h2>
+					<h2 class="reset bold">Tides owners have total access to onsite Amenities that will surpass your greatest expectations including:</h2>
 
-				<p>&bull; An integrated beach entry pool with sun and shade deck</p>
+					<p>&bull; An integrated beach entry pool with sun and shade deck</p>
 
-				<p>&bull; Cabana bar and summer kitchen</p>
+					<p>&bull; Cabana bar and summer kitchen</p>
 
-				<p>&bull; Spa and health club with sauna, steam, and massage rooms for personal training</p>
+					<p>&bull; Spa and health club with sauna, steam, and massage rooms for personal training</p>
 
-				<p>&bull; Finely appointed lobbies and verandas with two-story atrium where you can greet guests</p>
+					<p>&bull; Finely appointed lobbies and verandas with two-story atrium where you can greet guests</p>
 
-				<p>&bull; Full-time property management and engineering services available</p>
+					<p>&bull; Full-time property management and engineering services available</p>
+
+				</div>
 
 			</div>
 
 			<? else : ?>
 
-			<div id="sidebar-content" class="left clear-both side-box">
+			<div id="mobile-sidebar-content" class="left clear-both mobile-box">
 
-				<h2 class="reset bold">COMMUNITY</h2>
+				<div class="mobile-wrap">
 
-				<p>The perfect place to call home. With top quality amenities, full-time property management and neighbors who you can gladly call friends, the Tides is more than your residence; it’s your community.</p>
+					<h2 class="reset bold">COMMUNITY</h2>
+
+					<p>The perfect place to call home. With top quality amenities, full-time property management and neighbors who you can gladly call friends, the Tides is more than your residence; it’s your community.</p>
+
+				</div>
 
 			</div>
 
 			<? endif; ?>
 
-			<div id="nav-residencies" class="left clear-both">
+			<div id="mobile-nav-community" class="left clear-both">
 			
 				<ul class="ul-reset reset">
 					<li <?= is_page('amenities') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/amenities'); ?>">Amenities</a></li>
+
 					<li <?= is_page('meet-your-new-neighrbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighrbors'); ?>">Meet Your New Neighrbors</a></li>
-					<li><a class="uppercase bold block max-height max-width" href="<?= site_url(); ?>/wp-content/uploads/2013/04/tides_bucket_list_printout.pdf">Bucket List</a></li>
+
+					<? if (is_page('meet-your-new-neighrbors')) : ?>
+
+					<?
+						$args = array(
+							'post_type' => 'neighbors',
+							'post_status' => 'publish',
+							'nopaging' => true,
+							'post_per_page' => -1,
+							'orderby' => 'none'
+						);
+						$neighbors = new WP_Query($args);
+					?>
+
+					<li class="mobile-neighbors">
+
+						<div class="carousel mobile-carousel-neighbors">
+
+							<ul class="ul-reset reset">
+
+							<? foreach ($neighbors->posts as $post) : ?>
+
+								<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+								
+								<li class="neighbor left inline">
+									
+									<a title="<?= $post->post_title; ?>" rel="shadowbox[neighbor]" href="<?= $image[0]; ?>">
+
+										<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=175&h=230'; ?>">
+
+										<? if (get_post_meta($post->ID, 'Neighbor - Comment', true) != "") : ?>
+											<input type="hidden" name="neighbor-comment" value="<?= get_post_meta($post->ID, 'Neighbor - Comment', true); ?>">
+										<? endif; ?>
+
+									</a>
+
+								</li>
+
+							<? endforeach; ?>
+
+							</ul>
+
+						</div>
+
+						<div class="carousel phone-carousel-neighbors">
+
+							<ul class="ul-reset reset">
+
+							<? foreach ($neighbors->posts as $post) : ?>
+
+								<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+								
+								<li class="neighbor left inline">
+									
+									<a title="<?= $post->post_title; ?>" rel="shadowbox[neighbor]" href="<?= $image[0]; ?>">
+
+										<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=175&h=230'; ?>">
+
+										<? if (get_post_meta($post->ID, 'Neighbor - Comment', true) != "") : ?>
+											<input type="hidden" name="neighbor-comment" value="<?= get_post_meta($post->ID, 'Neighbor - Comment', true); ?>">
+										<? endif; ?>
+
+									</a>
+
+								</li>
+
+							<? endforeach; ?>
+
+							</ul>
+
+						</div>
+
+					</li>
+
+					<? endif; ?>
+
+					<li <?= is_page('bucket-list') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/bucket-list'); ?>">Bucket List</a></li>
+
 				</ul>
 			
 			</div>
@@ -254,7 +340,7 @@
 
 			</div>
 
-			<? elseif (is_page('residences') || is_page('floor-plans') || is_page('gallery') || is_page('features')) : ?>
+			<? elseif (is_page('residences') || is_page('listings') || is_page('gallery') || is_page('features')) : ?>
 
 			<div id="mobile-sidebar-content" class="left clear-both mobile-box">
 				
@@ -278,7 +364,7 @@
 					
 					<? if (is_page('listings')) : ?>
 
-				    <?
+						<?
 							$args = array(
 								'post_type' => 'floorplans',
 								'post_status' => 'publish',
@@ -291,39 +377,93 @@
 
 						<? if (!empty($floorplans->posts)) : ?>
 
-						<div class="floorplans">
+							<li class="mobile-floorplans">
 
-							<h3 class="light reset">Listings</h3>
+								<div class="carousel mobile-carousel-floorplans">
 
-							<ul class="ul-reset reset" id="floorplan-slider">
-
-							<? foreach ($floorplans->posts as $post) : ?>
+									<ul class="ul-reset reset">
 									
-								<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-									
-								<li class="floorplan left inline">
+									<? foreach ($floorplans->posts as $post) : ?>
 										
-									<h4 class="reset bold"><?= $post->post_title; ?></h4>
+										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+										<? $pdf = get_post_meta($post->ID, 'Floorplan - PDF'); ?>
 
-									<p class="reset"><?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?></p>
+										<li class="floorplan left inline">
+											
+											<h4 class="reset bold"><?= $post->post_title; ?></h4>
 
-									<p class="reset bold price"><?= get_post_meta($post->ID, 'Floorplan - Price', true); ?></p>
+											<p class="reset"><?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?></p>
 
-									<a href="<?= $image[0]; ?>">View Floorplan</a>
+											<p class="reset bold price"><?= get_post_meta($post->ID, 'Floorplan - Price', true); ?></p>
 
-									<br>
+											<a title="<?= $post->post_title; ?>" rel="shadowbox[floorplan]" href="<?= $image[0]; ?>">View Floorplan</a>
 
-									<a href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
+											<br>
 
-								</li>
+											<a href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
 
-								<? $image = null; ?>
+											<? if (get_post_meta($post->ID, 'Floorplan - PDF') != "") : ?>
+ 												<input type="hidden" name="floorplan-pdf" value="<?= $pdf[0]; ?>">
+ 											<? endif; ?>
 
-							<? endforeach; ?>
+											<? if (get_post_meta($post->ID, 'Floorplan - Short Description', true) != "") : ?>
+												<input type="hidden" name="floorplan-detail" value="<?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?>">
+											<? endif; ?>
 
-							</ul>
+										</li>
 
-						</div>
+										<? $image = null; ?>
+										<? $pdf = null; ?>
+									
+									<? endforeach; ?>
+
+									</ul>
+
+								</div>
+
+								<div class="carousel phone-carousel-floorplans">
+
+									<ul class="ul-reset reset">
+									
+									<? foreach ($floorplans->posts as $post) : ?>
+										
+										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+										<? $pdf = get_post_meta($post->ID, 'Floorplan - PDF'); ?>
+
+										<li class="floorplan left inline">
+											
+											<h4 class="reset bold"><?= $post->post_title; ?></h4>
+
+											<p class="reset"><?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?></p>
+
+											<p class="reset bold price"><?= get_post_meta($post->ID, 'Floorplan - Price', true); ?></p>
+
+											<a title="<?= $post->post_title; ?>" rel="shadowbox[floorplan]" href="<?= $image[0]; ?>">View Floorplan</a>
+
+											<br>
+
+											<a href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
+
+											<? if (get_post_meta($post->ID, 'Floorplan - PDF') != "") : ?>
+												<input type="hidden" name="floorplan-pdf" value="<?= $pdf[0]; ?>">
+											<? endif; ?>
+
+											<? if (get_post_meta($post->ID, 'Floorplan - Short Description', true) != "") : ?>
+												<input type="hidden" name="floorplan-detail" value="<?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?>">
+											<? endif; ?>
+
+										</li>
+
+										<? $image = null; ?>
+										<? $pdf = null; ?>
+									
+									<? endforeach; ?>
+
+									</ul>
+
+								</div>
+
+							</li>
 						
 				    <? else : ?>
 						
@@ -350,40 +490,60 @@
 
 						<? if ( ! empty($gallery->posts)) : ?>
 
-							<li class="mobile-gallery page-content">
+							<li class="mobile-gallery">
 								
-								<div id="mobile-slider" class="clear-both">
+								<div class="carousel mobile-carousel-gallery">
 							
 									<ul class="ul-reset reset">
 
 									<? foreach($gallery->posts as $post) : ?>
-										<? 
-										$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+										
+										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 
-										if (strlen($post->post_content) > 120) {
-											$content = substr($post->post_content, 0, 120);
-											$content .= '...';
-										} else {
-											$content = $post->post_content;
-										}
-										?>
-										<li>
+										<li class="gallery-image inline">
 
-											<img class="desktop-gallery" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=570&h=377'; ?>">
+											<a title="<?= $post->post_title; ?>" href="<?= $image[0]; ?>" rel="shadowbox[mobilegallery]">
 
-											<img class="tablet-gallery-img" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=768&h=576'; ?>">
-											
-											<img class="mobile-gallery-img" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=320&h=187'; ?>">
-											
-											<h4 class="bold reset"><?= $post->post_title; ?></h4>
-											
-											<p><?= $content; ?></p>
+												<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=175&h=175'; ?>">
+
+												<? if (get_post_meta($post->ID, 'Gallery - Short Description', true) != "") : ?>
+													<input type="hidden" name="gallery-detail" value="<?= get_post_meta($post->ID, 'Gallery - Short Description', true); ?>">
+												<? endif; ?>
+
+											</a>
 
 										</li>
-										<? 
-										$image = null; 
-										$content = null;
-										?>
+										<? $image = null; ?>
+
+									<? endforeach; ?>
+
+									</ul>
+
+								</div>
+
+								<div class="carousel phone-carousel-gallery">
+							
+									<ul class="ul-reset reset">
+
+									<? foreach($gallery->posts as $post) : ?>
+										
+										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+
+										<li class="gallery-image inline">
+
+											<a title="<?= $post->post_title; ?>" href="<?= $image[0]; ?>" rel="shadowbox[mobilegallery]">
+
+												<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=175&h=175'; ?>">
+	
+												<? if (get_post_meta($post->ID, 'Gallery - Short Description', true) != "") : ?>
+													<input type="hidden" name="gallery-detail" value="<?= get_post_meta($post->ID, 'Gallery - Short Description', true); ?>">
+												<? endif; ?>
+
+											</a>
+
+										</li>
+										<? $image = null; ?>
+
 									<? endforeach; ?>
 
 									</ul>
@@ -1547,6 +1707,10 @@
 				</footer>
 
 			</aside>
+
+		<script>
+			var url = "<?= bloginfo('siteurl'); ?>"
+		</script>
 
 		<? wp_footer(); ?>
 

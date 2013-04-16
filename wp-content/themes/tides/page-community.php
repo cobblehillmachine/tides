@@ -8,6 +8,24 @@ Template Name: Community Page
 
 					<? if (is_page('amenities')) : ?>
 
+					<? elseif (is_page('bucket-list')) : ?>
+
+						<? if (have_posts()) : while (have_posts()) : the_post(); ?>
+										   
+					    <div class="bucket-list">
+					    
+								<h3 class="light reset">Charleston Bucket List</h3>
+
+					    	<? the_content(); ?>
+
+				    	</div>
+					
+				    <? endwhile; else : ?>
+					
+			    		<? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+					
+				    <? endif; ?>
+
 				  <? elseif (is_page('meet-your-new-neighrbors')) : ?>
 
 				  	<?
@@ -27,19 +45,33 @@ Template Name: Community Page
 
 								<h3 class="light reset">Meet Your New Neighbors</h3>
 
-								<ul class="ul-reset reset" id="floorplan-slider">
+								<div class="carousel carousel-neighbors">
 
-								<? foreach ($neighbors->posts as $post) : ?>
-									
-									<li class="neighbor left inline">
+									<ul class="ul-reset reset" id="floorplan-slider">
+
+									<? foreach ($neighbors->posts as $post) : ?>
+
+										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 										
-										<h4 class="reset bold"><?= $post->post_title; ?></h4>
+										<li class="neighbor left inline">
+											
+											<a title="<?= $post->post_title; ?>" rel="shadowbox[neighbor]" href="<?= $image[0]; ?>">
 
-									</li>
+												<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=175&h=230'; ?>">
+	
+												<? if (get_post_meta($post->ID, 'Neighbor - Comment', true) != "") : ?>
+													<input type="hidden" name="neighbor-comment" value="<?= get_post_meta($post->ID, 'Neighbor - Comment', true); ?>">
+												<? endif; ?>
 
-								<? endforeach; ?>
+											</a>
 
-								</ul>
+										</li>
+
+									<? endforeach; ?>
+
+									</ul>
+
+								</div>
 
 							</div>
 				
@@ -51,4 +83,4 @@ Template Name: Community Page
 
 			  <? endif; ?>
 
-<? get_footer(); ?>
+<? get_footer(); ?>	

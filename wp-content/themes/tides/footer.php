@@ -555,7 +555,7 @@
 
 											<a title="<?= $post->post_title; ?>" href="<?= $image[0]; ?>" rel="shadowbox[mobilegallery]">
 
-												<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=175&h=175'; ?>">
+												<img alt="<?= $post->post_title; ?>" src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=150&h=150'; ?>">
 	
 												<? if (get_post_meta($post->ID, 'Gallery - Short Description', true) != "") : ?>
 													<input type="hidden" name="gallery-detail" value="<?= get_post_meta($post->ID, 'Gallery - Short Description', true); ?>">

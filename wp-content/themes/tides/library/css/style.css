@@ -2970,3 +2970,31 @@ body {
   }
 
   /* line 1791, ../sass/style.scss */
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* line 1793, ../sass/style.scss */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 1799, ../sass/style.scss */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 1805, ../sass/style.scss */
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

@@ -19,3 +19,4 @@ sitemap.xml.gz
 *.swp
 newsletter/
 local-config.php
+importbuddy/

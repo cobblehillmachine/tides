@@ -254,6 +254,22 @@ jQuery(document).ready(function ($) {
         pagination: false 
     });
 
+    $('.mobile-carousel-team').carousel({
+        itemsPerPage: 4,
+        itemsPerTransition: 1,
+        easing: 'linear',
+        noOfRows: 1,
+        pagination: false 
+    });
+
+    $('.phone-carousel-team').carousel({
+        itemsPerPage: 2,
+        itemsPerTransition: 1,
+        easing: 'linear',
+        noOfRows: 1,
+        pagination: false 
+    });
+
     $('.carousel-gallery').carousel({
         itemsPerPage: 3,
         itemsPerTransition: 3,

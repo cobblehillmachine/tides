@@ -1453,81 +1453,86 @@
 
 				<div class="mobile-wrap">
 					
-	        <div id="mobile-contact-info" class="left">
-            <? if (have_posts()) : while (have_posts()) : the_post(); ?>
-                                   
-              <h3 class="reset light">Contact Us</h3>
+                   <div id="team">
 
-              <? the_content(); ?>
+                        <h3 class="reset light">The Team</h3>
 
+                        <? 
+                          $args = array(
+                            'post_type' => 'team',
+                            'post_status' => 'publish',
+                            'nopaging' => true,
+                            'post_per_page' => -1,
+                            'orderby' => 'none'
+                          );
+                          $team = new WP_Query($args);
+                        ?>
 
-            <? endwhile; else : ?>
-            
-                <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
-            
-            <? endif; ?>
-	        </div>
-	    
-	        <div id="mobile-map">
+                        <div <?= count($team->posts) > 4 ? 'class="carousel mobile-carousel-team"' : null; ?>>
 
-	            <img class="right" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
+                            <? if (!empty($team->posts)) : ?>
 
-	        </div>
+                            <ul class="ul-reset reset" <?= count($team->posts) < 4 ? 'id="no-carousel"' : null; ?>>
 
-	        <div id="mobile-team">
+                                <? foreach ($team->posts as $post) : ?>
 
-            <h3 class="reset light">The Team</h3>
+                                  <? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 
-            <? 
-              $args = array(
-                'post_type' => 'team',
-                'post_status' => 'publish',
-                'nopaging' => true,
-                'post_per_page' => -1,
-                'orderby' => 'none'
-              );
-              $team = new WP_Query($args);
-            ?>
+                                  <li class="member left inline">
 
-            <? if (!empty($team->posts)) : ?>
+                                    <img src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=140&h=130'; ?>">
+                                    
+                                    <h4 class="semibold reset"><?= $post->post_title; ?></h4>
+                                    
+                                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
 
-              <ul id="mobile-carousel">
+                                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
 
-                <? foreach ($team->posts as $post) : ?>
+                                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Email Address', true); ?></p>
 
-                  <? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+                                  </li>
 
-                  <li class="member">
+                                  <? $image = null; ?>
 
-                    <img src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=140&h=130'; ?>">
-                    
-                    <h4 class="semibold reset"><?= $post->post_title; ?></h4>
-                    
-                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
+                                <? endforeach; ?>
 
-                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
+                            </ul>
 
-                    <p class="regular"><?= get_post_meta($post->ID, 'Team - Email Address', true); ?></p>
+                        </div>
 
-                  </li>
+                    </div>
 
-                  <? $image = null; ?>
+                    <div id="mobile-contact-info" class="left">
 
-                <? endforeach; ?>
+                        <? if (have_posts()) : while (have_posts()) : the_post(); ?>
+                                               
+                          <h3 class="reset light">Contact Us</h3>
 
-              </ul>
+                          <? the_content(); ?>
 
-            <? else : ?>
+                        <? endwhile; else : ?>
+                        
+                            <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+                        
+                        <? endif; ?>
 
-              <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+                    </div>
 
-            <? endif; ?>
+                    <? else : ?>
 
-	        </div>
+                      <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
 
-				</div>
+                    <? endif; ?>
 
-			</div>
+                    <div id="mobile-map" class="left">
+
+                        <img class="right" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
+
+                    </div>
+
+                </div>
+
+            </div>
 
 			<div id="mobile-contact-form" class="left clear-both mobile-box">
 

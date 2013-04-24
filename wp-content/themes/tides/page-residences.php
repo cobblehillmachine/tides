@@ -19,7 +19,7 @@ Template Name: Residences Page
 							$gallery = new WP_Query($args);
 						?>
 
-						<? if ( ! empty($gallery->posts)) : ?>
+						<? if (!empty($gallery->posts)) : ?>
 
 							<div class="gallery">
 							
@@ -90,7 +90,9 @@ Template Name: Residences Page
 									<? foreach ($floorplans->posts as $post) : ?>
 										
 										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-										<? $pdf = get_post_meta($post->ID, 'Floorplan - PDF'); ?>
+                                        <? $pdf = get_post_meta($post->ID, 'Floorplan - PDF'); ?>
+                                        <? $details = get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>
+                                        <? $desc = get_post_meta($post->ID, 'Floorplan - Short Description'); ?>
 
 										<li class="floorplan left inline">
 											
@@ -100,17 +102,21 @@ Template Name: Residences Page
 
 											<p class="reset bold price"><?= get_post_meta($post->ID, 'Floorplan - Price', true); ?></p>
 
-											<a title="<?= $post->post_title; ?>" rel="shadowbox[floorplan]" href="<?= $image[0]; ?>">View Floorplan</a>
+                                            <? if (!is_bool($image)) : ?>
+											    <a title="<?= $post->post_title; ?>" rel="shadowbox[floorplan]" href="<?= $image[0]; ?>">View Floorplan</a>
+                                            <? endif; ?>
 
 											<br>
 
-											<a href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
+                                            <? if (!empty($details)) : ?>
+											    <a target="_blank" href="<?= get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>">View Details</a>
+                                            <? endif; ?>
 
-											<? if (get_post_meta($post->ID, 'Floorplan - PDF') != "") : ?>
+											<? if (!empty($pdf)) : ?>
 												<input type="hidden" name="floorplan-pdf" value="<?= $pdf[0]; ?>">
 											<? endif; ?>
 
-											<? if (get_post_meta($post->ID, 'Floorplan - Short Description', true) != "") : ?>
+											<? if (!empty($desc)) : ?>
 												<input type="hidden" name="floorplan-detail" value="<?= get_post_meta($post->ID, 'Floorplan - Short Description', true); ?>">
 											<? endif; ?>
 
@@ -118,6 +124,8 @@ Template Name: Residences Page
 
 										<? $image = null; ?>
 										<? $pdf = null; ?>
+										<? $details = null; ?>
+										<? $desc = null; ?>
 									
 									<? endforeach; ?>
 

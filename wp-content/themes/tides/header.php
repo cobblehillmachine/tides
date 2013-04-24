@@ -101,7 +101,7 @@
 				
 				<p>The Tides waterfront condominiums overlook Charleston Harbor and the city’s historic skyline. The residences include luxurious features like semi-private elevators, hardwood floors, Viking &#174; appliances, and large, open floor plans. And right now, several new residences are being made available at a significant discount from the original list price.</p>
 				
-				<p>Sign up for email updates to be the first to know about pricing, timing and improvements to this select group of homes.</p>
+				<p>For those who want a luxury residence that gives you the freedom to pursue your life's interests, the Tides is the perfect place.</p>
 
 			</div>
 
@@ -109,7 +109,7 @@
 
 				<h2 class="reset left">Get the Inside Information</h2>
 
-				<p class="reset left">843.388.4681</p>
+				<p class="reset left">Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 				<div class="wpcf7" id="wpcf7-f42-t1-o1">
 
@@ -562,7 +562,7 @@
 			
 				<h2 class="reset bold">Contact Us</h2>
 			
-				<p>The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also reach out to Carolina One New Homes, our exclusive broker partner, for more information on these listings.</p>
+				<p>The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 			
 			</div>
 

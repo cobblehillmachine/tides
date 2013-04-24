@@ -23,7 +23,9 @@ Template Name: Contact Us Page
     
         <div id="map">
 
+          <a target="_blank" href="https://maps.google.com/maps?q=115+Cooper+River+Drive+Charleston,+SC&ie=UTF-8&ei=qFJ3UZXLKJT29gTy-YCwAQ&ved=0CAsQ_AUoAg">
             <img class="right inline" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
+          </a>
 
         </div>
 

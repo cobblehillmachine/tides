@@ -342,7 +342,7 @@ jQuery(document).ready(function ($) {
 
             if ($parent.find('input[name="floorplan-pdf"]').length > 0) {
                 var pdf = $parent.find('input[name="floorplan-pdf"]').val(),
-                    anchor = '<a id="download-link" href="' + url + '/' + pdf + '">Download</a>';
+                    anchor = '<a id="download-link" href="' + url + '/' + pdf + '">Download &amp; Print</a>';
 
                 $('#sb-counter').after(anchor);
             }
@@ -366,6 +366,7 @@ jQuery(document).ready(function ($) {
                     tag = '<p class="neighbor-comment">"' + text +'"</a>';
 
                 $('#sb-wrapper').append(tag);
+                $('#sb-wrapper').css('top','25px');
             }
         }
     });

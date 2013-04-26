@@ -1666,9 +1666,9 @@
 
 								<br />
 
-								<p class="reset">To learn more about East West Partners, visit us at <a href="http://eastwestpartners.com" target="_blank" id="footer-link">ewpartners.com</a></p>
+								<p class="reset left">To learn more about East West Partners, visit us at <a href="http://eastwestpartners.com" target="_blank" id="footer-link">ewpartners.com</a></p>
 
-                                <p class="reset"><a href="<?= bloginfo('url'); ?>/wp-content/uploads/2013/04/TIDES-Brochure.pdf" target="_blank" id="footer-link">Download Brochure</a></p>
+                                <p class="reset right"><a href="<?= bloginfo('url'); ?>/wp-content/uploads/2013/04/TIDES-Brochure.pdf" target="_blank" id="footer-link">Download Brochure</a></p>
 
 							</div>
 					

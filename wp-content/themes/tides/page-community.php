@@ -8,13 +8,29 @@ Template Name: Community Page
 
 					<? if (is_page('amenities')) : ?>
 
+						<? if (have_posts()) : while (have_posts()) : the_post(); ?>
+										   
+					    <div class="amenities">
+					    
+				            <h3 class="reset light">Tides owners have total access to onsite Amenities that will surpass your greatest expectations including:</h3>
+
+					    	<? the_content(); ?>
+
+				    	</div>
+					
+                        <? endwhile; else : ?>
+                        
+                            <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
+                        
+                        <? endif; ?>
+
 					<? elseif (is_page('bucket-list')) : ?>
 
 						<? if (have_posts()) : while (have_posts()) : the_post(); ?>
 										   
 					    <div class="bucket-list">
 					    
-								<h3 class="light reset">Charleston Bucket List</h3>
+                            <h3 class="light reset">Charleston Bucket List</h3>
 
 					    	<? the_content(); ?>
 

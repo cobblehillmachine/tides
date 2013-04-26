@@ -221,7 +221,7 @@
 			
 				<h2 class="reset left">Get the Inside Information</h2>
 
-				<p class="reset left">843.388.4681</p>
+				<p class="reset left">Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 				<div class="wpcf7" id="wpcf7-f42-t1-o1">
 
@@ -309,35 +309,13 @@
 
       <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) : ?>
 
-			<? if (is_page('amenities')) : ?>
-
-			<div id="sidebar-content" class="left clear-both side-box">
-	
-				<h2 class="reset bold">Tides owners have total access to onsite Amenities that will surpass your greatest expectations including:</h2>
-
-				<p>&bull; An integrated beach entry pool with sun and shade deck</p>
-
-				<p>&bull; Cabana bar and summer kitchen</p>
-
-				<p>&bull; Spa and health club with sauna, steam, and massage rooms for personal training</p>
-
-				<p>&bull; Finely appointed lobbies and verandas with two-story atrium where you can greet guests</p>
-
-				<p>&bull; Full-time property management and engineering services available</p>
-
-			</div>
-
-			<? else : ?>
-
 			<div id="sidebar-content" class="left clear-both side-box">
 
-				<h2 class="reset bold">COMMUNITY</h2>
+				<h2 class="reset bold">The perfect place to call home.</h2>
 
-				<p>The perfect place to call home. With top quality amenities, full-time property management and neighbors who you can gladly call friends, the Tides is more than your residence; it’s your community.</p>
+				<p>With top quality amenities, full-time property management and neighbors who you can gladly call friends, the Tides is more than your residence; it’s your community.</p>
 
 			</div>
-
-			<? endif; ?>
 
 			<div id="nav-community" class="left clear-both">
 			
@@ -353,7 +331,7 @@
 
 				<h2 class="reset left">Get the Inside Information</h2>
 
-				<p class="reset left">843.388.4681</p>
+				<p class="reset left">Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 				<div class="wpcf7" id="wpcf7-f42-t1-o1">
 
@@ -455,7 +433,7 @@
 
 					<li>
 
-						<a class="uppercase bold black tides-inactive_sub_nav max-height max-width" target="_blank" href="<?= content_url() . '/uploads/2013/01/county-map.pdf'; ?>">Area Map</a>
+						<a class="uppercase bold black tides-inactive_sub_nav max-height max-width" target="_blank" href="<?= content_url() . '/uploads/2013/04/county-map.pdf'; ?>">Area Map</a>
 
 					</li>
 			
@@ -570,7 +548,7 @@
 
 				<h2 class="reset left">Get the Inside Information</h2>
 
-				<p class="reset left">843.388.4681</p>
+				<p class="reset left">Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 				<div class="wpcf7" id="wpcf7-f42-t1-o1">
 

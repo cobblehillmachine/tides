@@ -347,13 +347,6 @@ jQuery(document).ready(function ($) {
                 $('#sb-counter').after(anchor);
             }
 
-            if ($parent.find('input[name="floorplan-detail"]').length > 0) {
-                var text = $parent.find('input[name="floorplan-detail"]').val(),
-                    tag = '<p class="floorplan-detail">' + text +'</a>';
-
-                $('#sb-wrapper').append(tag);
-            }
-
             if ($parent.find('input[name="gallery-detail"]').length > 0) {
                 var text = $parent.find('input[name="gallery-detail"]').val(),
                     tag = '<p class="gallery-detail">"' + text +'"</a>';

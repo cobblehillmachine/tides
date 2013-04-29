@@ -322,7 +322,7 @@ jQuery(document).ready(function ($) {
         displayCounter: false,
         onFinish: function (e) {
             var $parent = $(e.link).parent();
-            
+
             if ($('#sb-counter').next().is('a')) {
                 $('#sb-counter').next().remove();
             }
@@ -349,7 +349,7 @@ jQuery(document).ready(function ($) {
 
             if ($parent.find('input[name="floorplan-detail"]').length > 0) {
                 var text = $parent.find('input[name="floorplan-detail"]').val(),
-                    tag = '<p class="floorplan-detail">"' + text +'"</a>';
+                    tag = '<p class="floorplan-detail">' + text +'</a>';
 
                 $('#sb-wrapper').append(tag);
             }

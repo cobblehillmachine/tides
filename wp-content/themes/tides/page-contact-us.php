@@ -8,22 +8,22 @@ Template Name: Contact Us Page
 
         <div id="contact-info" class="left">
             <? if (have_posts()) : while (have_posts()) : the_post(); ?>
-                                   
+
                 <h3 class="reset light">Contact Us</h3>
 
                 <? the_content(); ?>
 
 
             <? endwhile; else : ?>
-            
+
                 <? _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?>
-            
+
             <? endif; ?>
         </div>
-    
+
         <div id="map">
 
-          <a target="_blank" href="https://maps.google.com/maps?q=32.802771,-79.900153&layer=c&z=17&iwloc=A&sll=32.802589,-79.900020&cbp=13,330.4,0,0,0&cbll=32.802573,-79.900010&vps=10&num=10">
+          <a target="_blank" href="http://goo.gl/maps/yJRUl">
             <img class="right inline" src="http://maps.googleapis.com/maps/api/staticmap?center=Charleston,South+Carolina,CS&amp;zoom=12&amp;size=210x210&amp;maptype=roadmap&amp;sensor=false" alt="Map of Charleston" width="210" height="210" />
           </a>
 
@@ -33,7 +33,7 @@ Template Name: Contact Us Page
 
             <h3 class="reset light">The Team</h3>
 
-            <? 
+            <?
                 $args = array(
                     'post_type' => 'team',
                     'post_status' => 'publish',
@@ -57,9 +57,9 @@ Template Name: Contact Us Page
                             <li class="member left inline">
 
                                 <img src="<?= content_url() . '/themes/tides/library/timthumb.php?src=' . $image[0] . '&q=100&w=140&h=130'; ?>">
-                                
+
                                 <h4 class="semibold reset"><?= $post->post_title; ?></h4>
-                                
+
                                 <p class="regular"><?= get_post_meta($post->ID, 'Team - Position Title', true); ?></p>
 
                                 <p class="regular"><?= get_post_meta($post->ID, 'Team - Contact Phone', true); ?></p>
@@ -76,7 +76,7 @@ Template Name: Contact Us Page
 
                 </div>
 
-                
+
 
             <? else : ?>
 
@@ -85,5 +85,5 @@ Template Name: Contact Us Page
             <? endif; ?>
 
         </div>
-			
+
 <? get_footer(); ?>

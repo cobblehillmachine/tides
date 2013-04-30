@@ -26,7 +26,7 @@ if (!window.getComputedStyle) {
         }
         return this;
     }
-}
+}   
 
 // as the page loads, call these scripts
 jQuery(document).ready(function ($) {

@@ -28,7 +28,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">Sign up for email updates to be the first to know about pricing, timing and improvements at the Tides.</p>
+					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
@@ -273,7 +273,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">Sign up for email updates to be the first to know about pricing, timing and improvements at the Tides.</p>
+					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -606,7 +606,7 @@
 
 					<h2 class="reset left">Stay in Touch.</h2>
 
-					<p class="clear-both">Sign up for email updates to be the first to know about pricing, timing and improvements at the Tides.</p>
+					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -1347,7 +1347,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">Sign up for email updates to be the first to know about pricing, timing and improvements at the Tides.</p>
+					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -1443,7 +1443,7 @@
 
 					<h2 class="reset bold">Contact Us</h2>
 
-					<p>The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also reach out to Carolina One New Homes, our exclusive broker partner, for more information on these listings.</p>
+					<p>The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 
 				</div>
 
@@ -1542,7 +1542,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">Sign up for email updates to be the first to know about pricing, timing and improvements at the Tides.</p>
+					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 

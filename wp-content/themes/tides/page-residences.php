@@ -90,9 +90,9 @@ Template Name: Residences Page
 									<? foreach ($floorplans->posts as $post) : ?>
 										
 										<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-                                        <? $pdf = get_post_meta($post->ID, 'Floorplan - PDF'); ?>
+                                        <? $pdf = get_post_meta($post->ID, 'Floorplan - PDF', true); ?>
                                         <? $details = get_post_meta($post->ID, 'Floorplan - MLS Details', true); ?>
-                                        <? $desc = get_post_meta($post->ID, 'Floorplan - Short Description'); ?>
+                                        <? $desc = get_post_meta($post->ID, 'Floorplan - Short Description', true); ?>
 
 										<li class="floorplan left inline">
 											

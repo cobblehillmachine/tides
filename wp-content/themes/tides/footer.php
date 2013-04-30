@@ -179,9 +179,9 @@
 
 					<li class="mobile-neighbors">
 
-						<div class="carousel mobile-carousel-neighbors">
+						<div <?= count($team->posts) > 4 ? 'class="carousel mobile-carousel-neighbors"' : null; ?>>
 
-							<ul class="ul-reset reset">
+							<ul class="ul-reset reset" <?= count($team->posts) < 4 ? 'id="no-carousel"' : null; ?>>
 
 							<? foreach ($neighbors->posts as $post) : ?>
 

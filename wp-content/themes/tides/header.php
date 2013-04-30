@@ -39,7 +39,7 @@
 			} else if (is_page('residences') || is_page('listings') || is_page('gallery') || is_page('features')) {
 				$src = content_url() . '/themes/tides/library/images/bg_residences.jpg';
 				$alt = 'Residencies Background';
-			} else if (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) {
+			} else if (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighbors') || is_page('bucket-list')) {
 				$src = content_url() . '/themes/tides/library/images/bg_amenities.jpg';
 				$alt = 'Amenities Background';
 			} else if (is_page('neighborhood')) {

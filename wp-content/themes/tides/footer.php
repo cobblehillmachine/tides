@@ -179,7 +179,7 @@
 
 					<li class="mobile-neighbors">
 
-						<div <?= count($team->posts) > 4 ? 'class="carousel mobile-carousel-neighbors"' : null; ?>>
+						<div <?= count($team->posts) > 4 ? 'class="carousel mobile-carousel-neighbors"' : 'class="mobile-carousel-neighbors"'; ?>>
 
 							<ul class="ul-reset reset" <?= count($team->posts) < 4 ? 'id="no-carousel"' : null; ?>>
 
@@ -188,6 +188,8 @@
 								<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 
 								<li class="neighbor left inline">
+
+									<p><?= $post->post_title; ?></p>
 
 									<a title="<?= $post->post_title; ?>" rel="shadowbox[neighbor]" href="<?= $image[0]; ?>">
 
@@ -216,6 +218,8 @@
 								<? $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 
 								<li class="neighbor left inline">
+
+									<p><?= $post->post_title; ?></p>
 
 									<a title="<?= $post->post_title; ?>" rel="shadowbox[neighbor]" href="<?= $image[0]; ?>">
 

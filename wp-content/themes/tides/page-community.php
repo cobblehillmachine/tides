@@ -42,7 +42,7 @@ Template Name: Community Page
 
 				    <? endif; ?>
 
-				  <? elseif (is_page('meet-your-new-neighrbors')) : ?>
+				  <? elseif (is_page('meet-your-new-neighbors')) : ?>
 
 				  	<?
 							$args = array(

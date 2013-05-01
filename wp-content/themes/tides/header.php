@@ -307,7 +307,7 @@
 
 			</div>
 
-      <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighrbors') || is_page('bucket-list')) : ?>
+      <? elseif (is_page('amenities') || is_page('community') || is_page('meet-your-new-neighbors') || is_page('bucket-list')) : ?>
 
 			<div id="sidebar-content" class="left clear-both side-box">
 
@@ -321,7 +321,7 @@
 			
 				<ul class="ul-reset reset">
 					<li <?= is_page('amenities') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/amenities'); ?>">Amenities</a></li>
-					<li <?= is_page('meet-your-new-neighrbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighbors'); ?>">Meet Your New Neighrbors</a></li>
+					<li <?= is_page('meet-your-new-neighbors') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/meet-your-new-neighbors'); ?>">Meet Your New Neighbors</a></li>
 					<li <?= is_page('bucket-list') ? 'class="current"': null; ?>><a class="uppercase bold block max-height max-width" href="<?= site_url('/community/bucket-list'); ?>">Bucket List</a></li>
 				</ul>
 			

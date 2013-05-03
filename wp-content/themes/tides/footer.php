@@ -28,7 +28,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
+					<p class="clear-both">Get the Inside Information Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
@@ -277,7 +277,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
+					<p class="clear-both">Get the Inside Information Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -623,7 +623,7 @@
 
 					<h2 class="reset left">Stay in Touch.</h2>
 
-					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
+					<p class="clear-both">Get the Inside Information Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -1364,7 +1364,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
+					<p class="clear-both">Get the Inside Information Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -1559,7 +1559,7 @@
 
 					<h2 class="reset clear-both">Stay in Touch.</h2>
 
-					<p class="clear-both">The sales team and property managers at the Tides are happy to answer any questions you may have – just fill out the contact form below, give us a call or send an email. You can also drop by the Harbor House, our onsite amenities building and request to speak with Mac or Patty.</p>
+					<p class="clear-both">Get the Inside Information Call 843-388-4681 to arrange a tour or complete the form to get on our insider email list.</p>
 
 					<div class="wpcf7" id="wpcf7-f51-t1-o1">
 
@@ -1685,7 +1685,7 @@
 
 								<p class="reset left">To learn more about East West Partners, visit us at <a href="http://eastwestpartners.com" target="_blank" id="footer-link">ewpartners.com</a></p>
 
-                                <p class="reset left inline" id="brochure"><a href="<?= bloginfo('url'); ?>/wp-content/uploads/2013/04/TIDES-Brochure.pdf" target="_blank" id="footer-link">Download Brochure</a></p>
+                                <p class="reset left clear-both inline" id="brochure"><a href="<?= bloginfo('url'); ?>/wp-content/uploads/2013/04/TIDES-Brochure.pdf" target="_blank" id="footer-link">Download Brochure</a></p>
 
 							</div>
 

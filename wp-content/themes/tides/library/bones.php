@@ -19,7 +19,7 @@ right up top and clean.
 // we're firing all out initial functions at the start
 add_action('after_setup_theme','bones_ahoy', 15);
 
-function bones_ahoy() 
+function bones_ahoy()
 {
     // launching operation cleanup
     add_action('init', 'bones_head_cleanup');
@@ -34,8 +34,6 @@ function bones_ahoy()
 
     // enqueue base scripts and styles
     add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
-    // ie conditional wrapper
-    add_filter('style_loader_tag', 'bones_ie_conditional', 10, 2);
 
     // launching this stuff after theme setup
     add_action('after_setup_theme','bones_theme_support');
@@ -58,7 +56,7 @@ removing all the junk we don't
 need.
 *********************/
 
-function bones_head_cleanup() 
+function bones_head_cleanup()
 {
 	// category feeds
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );
@@ -88,7 +86,7 @@ function bones_head_cleanup()
 function bones_rss_version() { return ''; }
 
 // remove WP version from scripts
-function bones_remove_wp_ver_css_js($src) 
+function bones_remove_wp_ver_css_js($src)
 {
   if (strpos($src, 'ver='))
     $src = remove_query_arg('ver', $src);
@@ -96,7 +94,7 @@ function bones_remove_wp_ver_css_js($src)
 }
 
 // remove injected CSS for recent comments widget
-function bones_remove_wp_widget_recent_comments_style() 
+function bones_remove_wp_widget_recent_comments_style()
 {
 	if (has_filter('wp_head', 'wp_widget_recent_comments_style')) {
 	  remove_filter('wp_head', 'wp_widget_recent_comments_style');
@@ -104,7 +102,7 @@ function bones_remove_wp_widget_recent_comments_style()
 }
 
 // remove injected CSS from recent comments widget
-function bones_remove_recent_comments_style() 
+function bones_remove_recent_comments_style()
 {
   global $wp_widget_factory;
   if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
@@ -113,7 +111,7 @@ function bones_remove_recent_comments_style()
 }
 
 // remove injected CSS from gallery
-function bones_gallery_style($css) 
+function bones_gallery_style($css)
 {
   return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
@@ -124,7 +122,7 @@ SCRIPTS & ENQUEUEING
 *********************/
 
 // loading modernizr and jquery, and reply script
-function bones_scripts_and_styles() 
+function bones_scripts_and_styles()
 {
   if ( ! is_admin()) {
     // modernizr (without media query polyfill)
@@ -141,9 +139,6 @@ function bones_scripts_and_styles()
 
     // register shadowbox stylesheet
     wp_register_style('bones-shadowbox', get_stylesheet_directory_uri() . '/library/js/libs/shadowbox-3.0.3/shadowbox.css', array(), '', 'all');
-
-    // ie-only style sheet
-    wp_register_style('bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '');
 
     // comment reply script for threaded comments
     if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -162,7 +157,6 @@ function bones_scripts_and_styles()
     wp_enqueue_style('bones-scrollpane');
     wp_enqueue_style('bones-shadowbox');
     wp_enqueue_style('bones-stylesheet');
-    wp_enqueue_style('bones-ie-only');
     /*
     I recommend using a plugin to call jQuery
     using the google cdn. That way it stays cached
@@ -176,21 +170,12 @@ function bones_scripts_and_styles()
   }
 }
 
-// adding the conditional wrapper around ie stylesheet
-// source: http://code.garyjones.co.uk/ie-conditional-style-sheets-wordpress/
-function bones_ie_conditional( $tag, $handle ) 
-{
-	if ( 'bones-ie-only' == $handle )
-		$tag = '<!--[if lt IE 9]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	return $tag;
-}
-
 /*********************
 THEME SUPPORT
 *********************/
 
 // Adding WP 3+ Functions & Theme Support
-function bones_theme_support() 
+function bones_theme_support()
 {
 	// wp thumbnails (sizes handled in functions.php)
 	add_theme_support('post-thumbnails');
@@ -244,7 +229,7 @@ MENUS & NAVIGATION
 *********************/
 
 // the main menu
-function bones_main_nav() 
+function bones_main_nav()
 {
 	// display the wp3 menu if available
   wp_nav_menu(array(
@@ -263,7 +248,7 @@ function bones_main_nav()
 } /* end bones main nav */
 
 // the footer menu (should you choose to use one)
-function bones_footer_links() 
+function bones_footer_links()
 {
 	// display the wp3 menu if available
   wp_nav_menu(array(
@@ -282,7 +267,7 @@ function bones_footer_links()
 } /* end bones footer link */
 
 // this is the fallback for header menu
-function bones_main_nav_fallback() 
+function bones_main_nav_fallback()
 {
 	wp_page_menu( array(
 		'show_home' => true,
@@ -296,7 +281,7 @@ function bones_main_nav_fallback()
 }
 
 // this is the fallback for footer menu
-function bones_footer_links_fallback() 
+function bones_footer_links_fallback()
 {
 	/* you can put a default here if you like */
 }
@@ -306,14 +291,14 @@ RELATED POSTS FUNCTION
 *********************/
 
 // Related Posts Function (call using bones_related_posts(); )
-function bones_related_posts() 
+function bones_related_posts()
 {
 	echo '<ul id="bones-related-posts">';
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
 	if ($tags) {
 		foreach($tags as $tag) { $tag_arr .= $tag->slug . ','; }
-    
+
     $args = array(
     	'tag' => $tag_arr,
     	'numberposts' => 5, /* you can change this to show more */
@@ -338,7 +323,7 @@ PAGE NAVI
 *********************/
 
 // Numeric Page Navi (built into the theme by default)
-function bones_page_navi($before = '', $after = '') 
+function bones_page_navi($before = '', $after = '')
 {
 	global $wpdb, $wp_query;
 	$request = $wp_query->request;
@@ -374,7 +359,7 @@ function bones_page_navi($before = '', $after = '')
 		$first_page_text = __("First", 'bonestheme');
 		echo '<li><a class="semibold" href="' . get_pagenum_link() . '" title="' . $first_page_text . '">' . $first_page_text . '</a></li>';
 	}
-	
+
 	for ($i = $start_page; $i  <= $end_page; $i++) {
 		if ($i == $paged) {
 			echo '<li class="current">' . $i . '</li>';
@@ -382,7 +367,7 @@ function bones_page_navi($before = '', $after = '')
 			echo '<li><a class="semibold" href="' . get_pagenum_link($i) . '">' . $i . '</a></li>';
 		}
 	}
-	
+
 	if ($end_page < $max_page) {
 		$last_page_text = __("Last", 'bonestheme');
 		echo '<li><a class="semibold" href="' . get_pagenum_link($max_page) . '" title="' . $last_page_text . '">' . $last_page_text . '</a></li>';
@@ -397,7 +382,7 @@ function bones_page_navi($before = '', $after = '')
 	echo '</li>';
 	echo '</ul>';
 	echo '</div>' . $after . "";
-	
+
 } /* end page navi */
 
 /*********************
@@ -411,7 +396,7 @@ function bones_filter_ptags_on_images($content)
 }
 
 // This removes the annoying […] to a Read More link
-function bones_excerpt_more($more) 
+function bones_excerpt_more($more)
 {
 	global $post;
 	// edit here if you like
@@ -423,7 +408,7 @@ function bones_excerpt_more($more)
  *
  * This is necessary to allow usage of the usual l10n process with printf().
  */
-function bones_get_the_author_posts_link() 
+function bones_get_the_author_posts_link()
 {
 	global $authordata;
 	if ( ! is_object($authordata))

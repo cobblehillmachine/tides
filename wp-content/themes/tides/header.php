@@ -10,8 +10,6 @@
 
 		<title><? bloginfo('name'); ?> <?php wp_title('-', true); ?></title>
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
 		<meta name="HandheldFriendly" content="True">
 
 		<meta name="MobileOptimized" content="320">

@@ -86,24 +86,21 @@ function bones_head_cleanup()
 function bones_rss_version() { return ''; }
 
 // remove WP version from scripts
-function bones_remove_wp_ver_css_js($src)
-{
+function bones_remove_wp_ver_css_js($src) {
   if (strpos($src, 'ver='))
     $src = remove_query_arg('ver', $src);
   return $src;
 }
 
 // remove injected CSS for recent comments widget
-function bones_remove_wp_widget_recent_comments_style()
-{
+function bones_remove_wp_widget_recent_comments_style() {
 	if (has_filter('wp_head', 'wp_widget_recent_comments_style')) {
 	  remove_filter('wp_head', 'wp_widget_recent_comments_style');
 	}
 }
 
 // remove injected CSS from recent comments widget
-function bones_remove_recent_comments_style()
-{
+function bones_remove_recent_comments_style() {
   global $wp_widget_factory;
   if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
     remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
@@ -111,8 +108,7 @@ function bones_remove_recent_comments_style()
 }
 
 // remove injected CSS from gallery
-function bones_gallery_style($css)
-{
+function bones_gallery_style($css) {
   return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
 
@@ -122,11 +118,13 @@ SCRIPTS & ENQUEUEING
 *********************/
 
 // loading modernizr and jquery, and reply script
-function bones_scripts_and_styles()
-{
+function bones_scripts_and_styles() {
   if ( ! is_admin()) {
-    // modernizr (without media query polyfill)
-    wp_register_script('bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false);
+    // modernizr
+    wp_register_script('bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.6.2', false);
+
+    // media queries
+    wp_register_script('bones-mediaqueries', get_stylesheet_directory_uri() . '/library/js/libs/css3-mediaqueries.js', array(), '1.0', false);
 
     // register main stylesheet
     wp_register_style('bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
@@ -153,6 +151,7 @@ function bones_scripts_and_styles()
 
     // enqueue styles and scripts
     wp_enqueue_script('bones-modernizr');
+    wp_enqueue_script('bones-mediaqueries');
     wp_enqueue_style('bones-formstyle');
     wp_enqueue_style('bones-scrollpane');
     wp_enqueue_style('bones-shadowbox');

@@ -299,7 +299,7 @@ jQuery(document).ready(function ($) {
         itemsPerTransition: 1,
         easing: 'linear',
         noOfRows: 1,
-        pagination: false,
+        pagination: false
     });
 
     $('.mobile-carousel-neighbors').carousel({
@@ -307,7 +307,7 @@ jQuery(document).ready(function ($) {
         itemsPerTransition: 1,
         easing: 'linear',
         noOfRows: 1,
-        pagination: false,
+        pagination: false
     });
 
     $('.phone-carousel-neighbors').carousel({
@@ -315,7 +315,7 @@ jQuery(document).ready(function ($) {
         itemsPerTransition: 1,
         easing: 'linear',
         noOfRows: 1,
-        pagination: false,
+        pagination: false
     });
 
     Shadowbox.init({
